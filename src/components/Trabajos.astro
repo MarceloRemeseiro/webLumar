@@ -1,0 +1,74 @@
+---
+const trabajos = [
+  {
+    imgSrc: "/assets/cup.jpg",
+    altText: "LALIGA FC PRO 24 CUP",
+    text: "LALIGA FC PRO 24 CUP",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+  {
+    imgSrc: "/assets/slo.jpg",
+    altText: "Descripción de la imagen 2",
+    text: "FINAL SUPERLIGA ORANGE BILBAO",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+  {
+    imgSrc: "/assets/valorant.jpg",
+    altText: "Descripción de la imagen 3",
+    text: "VALORANT CCIB BARCELONA",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+  {
+    imgSrc: "/assets/gy10rubius.jpg",
+    altText: "Descripción de la imagen 4",
+    text: "RUBIUS BATLE ROYALE",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+  {
+    imgSrc: "/assets/elibertadores.png",
+    altText: "Descripción de la imagen 4",
+    text: "CONMEBOL eLIBERTADORES",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+  {
+    imgSrc: "/assets/motogp.png",
+    altText: "Descripción de la imagen 4",
+    text: "MOTGPESPORT CHAMPIONCHIP",
+    text2: "Producido por LVP",
+    text3: "Dirección técnica en Broadcast SincrosAv",
+  },
+];
+---
+
+<h1 class="text-center text-blanco font-bold text-3xl my-8">
+  ALGUNOS TRABAJOS EN LOS QUE HEMOS COLABORADO
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 mx-auto">
+  {
+    trabajos.map((trabajo) => (
+      <a href={trabajo.imgSrc} target="_blank" rel="noopener noreferrer">
+        <div class="relative group overflow-hidden  cursor-pointer">
+          <img
+            class="h-auto max-w-full aspect-video border border-white transition-transform duration-700 transform group-hover:scale-110 group-hover:brightness-75"
+            src={trabajo.imgSrc}
+            alt={trabajo.altText}
+          />
+          <div class="absolute flex flex-col inset-0 flex items-center justify-center hover:hidden">
+            <h2 class="p-4 bg-black bg-opacity-80 text-white border border-white">
+              {trabajo.text}
+            </h2>
+          </div>
+            <div class="text-sm pt-3 pb-2 px-4 bg-black bg-opacity-80 text-white border border-white">
+              <p class=" text-white">{trabajo.text2}</p>
+              <p class=" text-white">{trabajo.text3}</p>
+            </div>
+        </div>
+      </a>
+    ))
+  }
+</div>

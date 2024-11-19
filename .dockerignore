@@ -1,0 +1,7 @@
+# Ignorar archivos y directorios de dependencias
+node_modules/
+
+# Ignorar archivos y directorios específicos
+.git/
+.vscode/
+.DS_Store

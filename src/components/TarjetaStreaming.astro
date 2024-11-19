@@ -1,0 +1,50 @@
+---
+import "animate.css";
+
+interface Props {
+  titulo: string;
+  foto: string;
+}
+
+const { titulo, foto } = Astro.props;
+---
+
+<div class="text-blanco mx-auto">
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 text-blanco">
+    <div
+      class="order-2 md:px-24 bg-gradient-to-br from-primary to-black flex flex-col mx-auto justify-center items-center"
+    >
+      <h1 class="text-3xl md:text-4xl font-bold p-4">{titulo}</h1>
+      <div class="text-lg">
+        <p class="text-lg md:text-xl px-4 pb-2">
+          En Lumar Solutions, somos especialistas en servicios de streaming,
+          asegurando que tu contenido llegue a cualquier parte del mundo con la
+          mejor calidad. Ofrecemos:
+        </p>
+        <ul class="px-6 pb-2 list-disc">
+          <li>Transmisiones en vivo sin interrupciones.</li>
+          <li>Distribucion de streaming a varias plataformas</li>
+          <li>Gestión completa de la infraestructura técnica.</li>
+          <li>
+            Soluciones para eventos deportivos, eSports, lanzamientos de
+            productos y webinars.
+          </li>
+        </ul>
+        <p class="px-4 pb-2">
+          Nuestro objetivo es que puedas enfocarte en lo más importante: tu
+          audiencia. Hacemos que tu mensaje llegue de forma
+          efectiva y profesional.
+        </p>
+      </div>
+    </div>
+
+    <div class="order-1 text-negro relative">
+      <img src={foto} alt="" class="h-full object-cover" />
+      <div class="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm md:text-xl">
+        <p>CONMEBOL ELIBERTADORES</p>
+        <p>Producido por LVP</p>
+        <p>Dirección técnica en Broadcast Lumar Solutions</p>
+      </div>
+    </div>
+  </div>
+</div>

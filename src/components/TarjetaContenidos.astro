@@ -1,0 +1,48 @@
+---
+import "animate.css";
+
+interface Props {
+  titulo: string;
+  foto: string;
+}
+
+const { titulo, foto } = Astro.props;
+---
+
+<div class="text-blanco mx-auto">
+  <div class="w-full grid grid-cols-1 lg:grid-cols-2 text-blanco">
+    <div
+      class="order-2 md:px-24 bg-gradient-to-br from-primary to-black flex flex-col mx-auto justify-center items-center"
+    >
+      <h1 class="text-3xl md:text-4xl font-bold p-4">{titulo}</h1>
+      <div class="text-lg">
+        <p class="md:text-xl px-4 pb-2">
+          En Lumar Solutions, somos expertos en la creación de contenidos impactantes
+          y de alta calidad para una variedad de aplicaciones audiovisuales.
+          Ofrecemos:
+        </p>
+        <ul class="px-6 pb-2 list-disc">
+          <li>Contenidos personalizados para pantallas LED.</li>
+          <li>Grafismos para programas, en 2D y 3D.</li><li>
+            Renders y animaciones profesionales.
+          </li>
+        </ul>
+        <p class="px-4 pb-2">
+          Nuestro equipo creativo se dedica a desarrollar soluciones visuales
+          que capturan la atención y comunican tu mensaje de manera efectiva.
+          Trabajamos con tecnología avanzada y un enfoque innovador para
+          asegurar que cada proyecto refleje la visión y necesidades específicas
+          de nuestros clientes.
+        </p>
+      </div>
+    </div>
+    <div class="order-1 lg:order-2 text-negro relative">
+      <img src={foto} alt="" class="h-full object-cover" />
+      <div class="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm md:text-xl">
+        <p>CONMEBOL ELIBERTADORES</p>
+        <p>Producido por LVP</p>
+        <p>Dirección técnica en Broadcast Lumar Solutions</p>
+      </div>
+    </div>
+  </div>
+</div>

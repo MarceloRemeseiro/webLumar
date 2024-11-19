@@ -1,0 +1,130 @@
+---
+---
+<div id="pdcc-message-container" style="display: none;">
+  <p>
+    Este sitio web puede utilizar cookies de terceros para fines analíticos.
+    <span id="pdcc-message-accept" class="pdcc-message-btn accept">Aceptar</span>
+    <span id="pdcc-message-decline" class="pdcc-message-btn decline">Declinar</span>
+  </p>
+</div>
+
+<style>
+  #pdcc-message-container {
+    z-index: 999998;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #3c4e66;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  #pdcc-message-container p {
+    padding: 10px 20px;
+    font-size: 13px;
+    margin: 0;
+  }
+
+  #pdcc-message-container p span.pdcc-message-btn {
+    display: inline-block;
+    padding: 4px 7px;
+    margin-left: 10px;
+    border-radius: 9px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  #pdcc-message-container p span.pdcc-message-btn.decline {
+    background-color: red;
+    color: white;
+  }
+
+  #pdcc-message-container p span.pdcc-message-btn.accept {
+    background-color: green;
+    color: white;
+  }
+
+  #pdcc-message-container p span.pdcc-message-btn.decline:hover {
+    background-color: white;
+    color: black;
+  }
+
+  #pdcc-message-container p span.pdcc-message-btn.accept:hover {
+    background-color: white;
+    color: black;
+  }
+</style>
+
+<script>
+  (() => {
+    const cookieConsent = {
+      init() {
+        if (!this.hasConsent()) {
+          this.showBanner();
+          this.bindEvents();
+        }
+      },
+
+      showBanner() {
+        const banner = document.getElementById('pdcc-message-container');
+        banner.style.display = 'block';
+      },
+
+      bindEvents() {
+        document.getElementById('pdcc-message-accept').addEventListener('click', this.acceptCookies.bind(this));
+        document.getElementById('pdcc-message-decline').addEventListener('click', this.declineCookies.bind(this));
+      },
+
+      acceptCookies() {
+        this.setCookie('pdcc', 'accepted', 1); // Session cookie
+        this.hideBanner();
+        this.loadCookies();
+      },
+
+      declineCookies() {
+        this.setCookie('pdcc', 'declined', 1); // Session cookie
+        this.hideBanner();
+      },
+
+      setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      },
+
+      getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      },
+
+      hasConsent() {
+        const consent = this.getCookie('pdcc');
+        return consent === 'accepted' || consent === 'declined';
+      },
+
+      hideBanner() {
+        const banner = document.getElementById('pdcc-message-container');
+        if (banner) banner.style.display = 'none';
+      },
+
+      loadCookies() {
+        // Aquí puedes cargar las cookies de terceros que necesites
+        console.log("Cargando cookies de terceros...");
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => cookieConsent.init());
+  })();
+</script>

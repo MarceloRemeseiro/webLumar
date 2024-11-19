@@ -1,0 +1,25 @@
+<svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Referencia a la fuente externa -->
+  <defs>
+    <style type="text/css">
+      @font-face {
+        font-family: 'Neuropol';
+        src: url('path_to_your_font/Neuropol.otf') format('opentype');
+      }
+      .title {
+        font-family: 'Neuropol', sans-serif;
+        font-size: 24px;
+        fill: #fff;
+      }
+      .title2 {
+        font-family: 'Neuropol', sans-serif;
+        font-size: 24px;
+        fill: #3c4e66;
+      }
+    </style>
+  </defs>
+  <!-- Texto usando la fuente -->
+  <text x="10" y="40" class="title">Lumar</text>
+  <text x="130" y="40" class="title2">Solutions</text>
+
+</svg>
