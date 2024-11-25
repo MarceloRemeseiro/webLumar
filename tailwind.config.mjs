@@ -11,7 +11,7 @@ export default {
       // Aquí puedes definir tus propios colores que serán agregados a la paleta de colores predeterminada.
       colors: {
         secundario: "#150a4a",
-        primary: "#3c4e66",
+        primary: "#0d3562",
         grisOscuro: "#252525",
         negro: "#000",
         blanco: "#fff",

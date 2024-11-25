@@ -12,20 +12,31 @@ import Trabajos from "../components/Trabajos.astro";
 import Services from "../components/Services.astro";
 import PastillaRedes from "../components/PastillaRedes.astro";
 import Cookies from "../components/Cookies.astro";
+import ImageSlider from "../components/ImageSlider.astro";
+
+const slides = [
+  { image: "/assets/camara.jpg" },
+  { image: "/assets/gy10rubius.jpg" },
+  { image: "/assets/palau.jpg" },
+];
+
+const sliderTitle = "Soluciones Audiovisuales Profesionales";
+const sliderSubtitle = "Equipamiento y personal especializado para eventos y producciones";
 ---
 
 <Layout title="Lumar Solutions">
   <div class="container mx-auto">
     <PastillaRedes />
-    <Video />
+    <ImageSlider 
+      slides={slides} 
+      title={sliderTitle} 
+      subtitle={sliderSubtitle} 
+    />
+    <!-- <Video /> -->
     <Redes />
     <Welcome />
-    <TarjetaBroadcast titulo="BROADCAST" foto="/assets/broadcast.jpg" />
-    <TarjetaAudiovisuales titulo="AUDIOVISUALES" foto="/assets/palau.jpg" />
-    <TarjetaStreaming titulo="STREAMING" foto="/assets/streaming.jpg" />
-    <TarjetaContenidos titulo="CONTENIDOS" foto="/assets/contenidos.png" />
-    <div class="container mx-auto mt-8">
-      <h1 class="text-center text-blanco text-3xl">QUE TENEMOS PARA TI</h1>
+    <div class="mb-8">
+      <h1 class="text-center text-blanco text-3xl mb-8">SERVICIOS</h1>
       <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mt-8 mx-auto">
         <Services titulo="EQUIPAMIENTO PROFESIONAL" />
         <Services titulo="PERSONAL CUALIFICADO" />
@@ -33,15 +44,20 @@ import Cookies from "../components/Cookies.astro";
         <Services titulo="PANTALLAS DE LED" />
         <Services titulo="LUCES" />
         <Services titulo="SONIDO" />
-        <Services titulo="CONTENIDOS" />
-        <Services titulo="CREATIVIDAD" />
         <Services titulo="CARTELERÍA" />
+        <Services titulo="CONTENIDOS" />
+        <!--<Services titulo="CREATIVIDAD" />
         <Services titulo="PLANOS" />
         <Services titulo="RENDERS" />
-        <Services titulo="CATERING" />
+        <Services titulo="CATERING" /> -->
       </div>
     </div>
-    <Trabajos />
+    <TarjetaBroadcast titulo="BROADCAST" foto="/assets/nubeca.jpeg" />
+    <TarjetaAudiovisuales titulo="AUDIOVISUALES" foto="/assets/bolero.jpeg" />
+    <TarjetaStreaming titulo="STREAMING" foto="/assets/streaming.jpg" />
+    <TarjetaContenidos titulo="CONTENIDOS" foto="/assets/cams.jpeg" />
+    <div class="container mx-auto mt-8"></div>
+    <!-- <Trabajos /> -->
   </div>
 </Layout>
 <Cookies />
