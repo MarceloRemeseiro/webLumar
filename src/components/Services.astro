@@ -5,10 +5,16 @@ interface props {
 const { titulo } = Astro.props;
 ---
 
-<section>
-  <div class="border border-blanco rounded-lg p-8">
-    <h2 class="text-center text-white text-base md:text-lg font-bold mb-2">
+<section class="h-full">
+  <div class="border border-blanco rounded-lg p-8 h-24 md:h-32 flex items-center justify-center hover:bg-white/10 transition-colors duration-300">
+    <h2 class="text-center text-white text-base md:text-lg font-bold">
       {titulo}
     </h2>
   </div>
 </section>
+
+<style>
+  .border {
+    min-width: 200px;
+  }
+</style>
