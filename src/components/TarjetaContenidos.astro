@@ -30,8 +30,12 @@ const { titulo, foto } = Astro.props;
       
       </div>
     </div>
-    <div class="order-1 lg:order-2 text-negro relative">
-      <img src={foto} alt="" class="h-full object-cover" />
+    <div class="order-1 lg:order-2 text-negro relative h-[300px] md:h-auto">
+      <img 
+        src={foto} 
+        alt="" 
+        class="h-full w-full object-cover object-center"
+      />
       <!-- <div class="absolute bottom-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm md:text-xl">
         <p>CONMEBOL ELIBERTADORES</p>
         <p>Producido por LVP</p>
