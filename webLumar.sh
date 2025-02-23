@@ -2,9 +2,6 @@
 
 # Nombres fijos
 REPOSITORIO="weblumar"
-CONTAINER_NAME=weblumar
-IMAGE_NAME=weblumar
-PORT=1010:8080
 SCRIPT_DIR="/Developer/$REPOSITORIO"
 
 # Asegurarse de que estamos en el directorio correcto
@@ -28,27 +25,13 @@ fi
 git config --global credential.username marceloremeseiro
 git pull https://marceloremeseiro:${GITHUB_TOKEN}@github.com/MarceloRemeseiro/${REPOSITORIO}.git main
 
-# Resto del script para Docker
-if [ $(docker ps -q -f name=$CONTAINER_NAME) ]; then
-    echo "Deteniendo y eliminando el contenedor actual..."
-    docker stop $CONTAINER_NAME
-    docker rm $CONTAINER_NAME
-fi
+# Detener y reconstruir los contenedores con docker-compose
+echo "Reconstruyendo y reiniciando los contenedores..."
+docker-compose down
+docker-compose build --no-cache
+docker-compose up -d
 
-if [ $(docker images -q $IMAGE_NAME) ]; then
-    echo "Eliminando la imagen Docker..."
-    docker rmi $IMAGE_NAME
-fi
-
-# Reconstruir la imagen Docker
-echo "Construyendo la nueva imagen Docker..."
-docker build -t $IMAGE_NAME .
-
-# Iniciar el nuevo contenedor
-echo "Iniciando el nuevo contenedor..."
-docker run -d --name $CONTAINER_NAME --restart=always -p $PORT $IMAGE_NAME
-
-# Limpiar imágenes
+# Limpiar imágenes sin usar
 echo "Limpiando imágenes sin usar..."
 docker image prune -f
 
